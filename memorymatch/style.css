@@ -12,7 +12,8 @@ body {
     background: linear-gradient(135deg, #1e1e2f, #2a2a4a);
     color: white;
     min-height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden; /* Mencegah geser ke samping */
+    overflow-y: auto;   /* MEMBUKA KUNCI SCROLL BAWAH */
 }
 
 /* --- Pengaturan Layar --- */
@@ -97,9 +98,14 @@ small { display: block; margin-top: 5px; color: #aaa; font-size: 0.8rem; }
 
 /* --- Papan Permainan & Kartu --- */
 #game-board {
-    display: grid; gap: 15px; padding: 20px; width: 100%; max-width: 1200px; /* Diperlebar menjadi 1200px */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 120px adalah ukuran minimal kartu */
+    display: grid; 
+    gap: 15px; 
+    padding: 20px; 
+    width: 100%; 
+    max-width: 1200px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ukuran PC */
     justify-content: center;
+    margin-bottom: 50px; /* Memberikan ruang ekstra di bagian paling bawah agar nyaman di-scroll */
 }
 
 .card {
@@ -136,6 +142,19 @@ small { display: block; margin-top: 5px; color: #aaa; font-size: 0.8rem; }
     box-shadow: 0 0 15px #2ed573; border: 3px solid #2ed573; opacity: 0.8;
 }
 
-@media (max-width: 1000px) {
-    #game-board { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+/* ========================================= */
+/* KODE AJAIB UNTUK LAYAR HP (Otomatis)      */
+/* ========================================= */
+@media (max-width: 768px) {
+    #game-board {
+        gap: 8px; /* Jarak antar kartu dirapatkan */
+        padding: 10px;
+        /* Ukuran kartu otomatis mengecil minimal 60px agar muat banyak di HP */
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); 
+    }
+    
+    /* Menyesuaikan jarak papan skor di HP agar tidak terlalu memakan tempat atas */
+    #scoreboard {
+        margin-top: 60px; 
+    }
 }
