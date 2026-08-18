@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Memory Card Game Multiplayer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Menggunakan Font Awesome untuk Icon Fullscreen -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Tombol Fullscreen -->
+    <button id="fullscreen-btn" onclick="toggleFullScreen()">
+        <i class="fas fa-expand"></i>
+    </button>
+
+    <!-- Halaman Menu Utama -->
+    <div id="menu-screen" class="screen active">
+        <div class="menu-box">
+            <h1>Memory Match</h1>
+            
+            <div class="setting-group">
+                <label>Jumlah Pemain (1-4):</label>
+                <div class="counter-container">
+                    <button class="btn-counter" onclick="adjustPlayers(-1)">-</button>
+                    <span id="player-count">2</span>
+                    <button class="btn-counter" onclick="adjustPlayers(1)">+</button>
+                </div>
+            </div>
+
+            <div class="setting-group">
+                <label>Jumlah Pasangan Gambar:</label>
+                <div class="counter-container">
+                    <button class="btn-counter" onclick="adjustPairs(-5)">-</button>
+                    <span id="pair-count">10</span>
+                    <button class="btn-counter" onclick="adjustPairs(5)">+</button>
+                </div>
+                <small id="max-pair-info">Max: 20 pasangan</small>
+            </div>
+
+            <button class="btn-start" onclick="startGame()">Mulai Game</button>
+        </div>
+    </div>
+
+    <!-- Halaman Permainan -->
+    <div id="game-screen" class="screen">
+        <button class="btn-back" onclick="returnToMenu()">
+            <i class="fas fa-arrow-left"></i> Menu
+        </button>
+        
+        <!-- Papan Skor -->
+        <div id="scoreboard">
+            <!-- Akan diisi otomatis oleh JavaScript -->
+        </div>
+
+        <!-- Papan Permainan (Kartu) -->
+        <div id="game-board">
+            <!-- Kartu akan di-generate di sini -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
