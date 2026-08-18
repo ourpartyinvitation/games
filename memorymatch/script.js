@@ -133,7 +133,7 @@ function generateCards() {
     });
 
     // Sesuaikan ukuran grid CSS secara dinamis jika jumlah kartu sangat banyak
-    if (pairsCount > 10) {
+    if (pairsCount > 5) {
         board.style.gridTemplateColumns = "repeat(auto-fit, minmax(60px, 1fr))";
     } else {
         board.style.gridTemplateColumns = "repeat(auto-fit, minmax(80px, 1fr))";
