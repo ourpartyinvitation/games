@@ -8,7 +8,7 @@ const imagePath = "gambar/"; // Nama folder
 
 // Variables (State Management)
 let playersCount = 2;
-let pairsCount = 10;
+let pairsCount = 5;
 const maxPairs = availableImages.length; // Max berdasarkan jumlah gambar di array
 
 let currentPlayer = 0;
