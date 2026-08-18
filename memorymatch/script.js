@@ -134,9 +134,9 @@ function generateCards() {
 
     // Sesuaikan ukuran grid CSS secara dinamis jika jumlah kartu sangat banyak
     if (pairsCount > 10) {
-        board.style.gridTemplateColumns = "repeat(auto-fit, minmax(150px, 1fr))";
+        board.style.gridTemplateColumns = "repeat(auto-fit, minmax(80px, 1fr))";
     } else {
-        board.style.gridTemplateColumns = "repeat(auto-fit, minmax(200px, 1fr))";
+        board.style.gridTemplateColumns = "repeat(auto-fit, minmax(100px, 1fr))";
     }
 }
 
