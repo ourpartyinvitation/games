@@ -4,34 +4,34 @@ const gamesData = [
     {
         title: "Memory Match",
         description: "Latih daya ingatmu dengan mencocokkan kartu bergambar yang seru!",
-        thumbnail: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=500&q=80", 
+        thumbnail: "https://play-lh.googleusercontent.com/vnZp-lchly_etUyNHxRXYp_EL0r2CP3G-tuFmpzX9AAQgfi6COKAF1TfTJ_UN6sd-4Oy9kZm5OSLtB1Dlxeu?auto=format&fit=crop&w=500&q=80", 
         path: "./memorymatch/index.html" // Path menuju folder game-mu
     },
-    {
-        title: "Tebak Kata",
-        description: "Uji kosakatamu dan tebak kata rahasia sebelum waktunya habis!",
-        thumbnail: "https://images.unsplash.com/photo-1633526543814-9718c8922b7a?auto=format&fit=crop&w=500&q=80",
-        path: "./TebakKata/index.html" 
-    },
-    {
-        title: "Math Ninja",
-        description: "Jadilah ninja matematika dengan menebas jawaban berhitung yang benar!",
-        thumbnail: "https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?auto=format&fit=crop&w=500&q=80",
-        path: "./MathNinja/index.html"
-    },
-    // Contoh dummy agar terlihat grid 3x3
-    {
-        title: "Balap Mobil 2D",
-        description: "Kendalikan mobilmu dan hindari rintangan di jalan raya!",
-        thumbnail: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=500&q=80",
-        path: "#"
-    },
-    {
-        title: "Petualangan Luar Angkasa",
-        description: "Jelajahi galaksi dan selamatkan bumi dari serangan alien lucuuu.",
-        thumbnail: "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=500&q=80",
-        path: "#"
-    }
+    // {
+    //     title: "Tebak Kata",
+    //     description: "Uji kosakatamu dan tebak kata rahasia sebelum waktunya habis!",
+    //     thumbnail: "https://images.unsplash.com/photo-1633526543814-9718c8922b7a?auto=format&fit=crop&w=500&q=80",
+    //     path: "./TebakKata/index.html" 
+    // },
+    // {
+    //     title: "Math Ninja",
+    //     description: "Jadilah ninja matematika dengan menebas jawaban berhitung yang benar!",
+    //     thumbnail: "https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?auto=format&fit=crop&w=500&q=80",
+    //     path: "./MathNinja/index.html"
+    // },
+    // // Contoh dummy agar terlihat grid 3x3
+    // {
+    //     title: "Balap Mobil 2D",
+    //     description: "Kendalikan mobilmu dan hindari rintangan di jalan raya!",
+    //     thumbnail: "https://images.unsplash.com/photo-1511994298241-608e28f14fde?auto=format&fit=crop&w=500&q=80",
+    //     path: "#"
+    // },
+    // {
+    //     title: "Petualangan Luar Angkasa",
+    //     description: "Jelajahi galaksi dan selamatkan bumi dari serangan alien lucuuu.",
+    //     thumbnail: "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?auto=format&fit=crop&w=500&q=80",
+    //     path: "#"
+    // }
 ];
 
 // Fungsi untuk me-render kartu game ke dalam HTML
