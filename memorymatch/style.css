@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    user-select: none; /* Mencegah seleksi teks saat bermain cepat */
+}
+
+body {
+    background: linear-gradient(135deg, #1e1e2f, #2a2a4a);
+    color: white;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* --- Pengaturan Layar --- */
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 20px;
+}
+.screen.active {
+    display: flex;
+}
+
+/* --- Tombol Fullscreen & Back --- */
+#fullscreen-btn, .btn-back {
+    position: absolute;
+    top: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    transition: 0.3s;
+    z-index: 100;
+}
+#fullscreen-btn { right: 15px; font-size: 1.2rem; }
+.btn-back { left: 15px; font-size: 1rem; }
+#fullscreen-btn:hover, .btn-back:hover { background: rgba(255, 255, 255, 0.3); }
+
+/* --- Menu Utama --- */
+.menu-box {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+.menu-box h1 { margin-bottom: 30px; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+.setting-group { margin-bottom: 25px; }
+.setting-group label { display: block; margin-bottom: 10px; font-size: 1.1rem; }
+.counter-container { display: flex; align-items: center; justify-content: center; gap: 20px; }
+.btn-counter {
+    background: #ff4757; color: white; border: none; width: 40px; height: 40px;
+    border-radius: 50%; font-size: 1.5rem; cursor: pointer; font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 71, 87, 0.4); transition: 0.2s;
+}
+.btn-counter:active { transform: scale(0.9); }
+span#player-count, span#pair-count { font-size: 1.5rem; font-weight: bold; min-width: 40px; }
+small { display: block; margin-top: 5px; color: #aaa; font-size: 0.8rem; }
+.btn-start {
+    background: #2ed573; color: white; border: none; padding: 15px 40px;
+    border-radius: 30px; font-size: 1.2rem; font-weight: bold; cursor: pointer;
+    box-shadow: 0 6px 15px rgba(46, 213, 115, 0.4); transition: 0.3s; margin-top: 10px;
+}
+.btn-start:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(46, 213, 115, 0.6); }
+
+/* --- Papan Skor (UI Ludo Style) --- */
+#scoreboard {
+    display: flex; justify-content: center; gap: 15px; margin-bottom: 20px;
+    margin-top: 50px; width: 100%; max-width: 800px; flex-wrap: wrap;
+}
+.player-score {
+    background: rgba(0, 0, 0, 0.4); padding: 10px 20px; border-radius: 15px;
+    text-align: center; border: 2px solid transparent; transition: 0.3s; min-width: 100px;
+}
+.player-score.active {
+    border-color: #feca57; background: rgba(254, 202, 87, 0.2);
+    box-shadow: 0 0 15px #feca57; transform: scale(1.05);
+}
+.player-name { font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; color: #ddd; }
+.active .player-name { color: #feca57; }
+.score-number { font-size: 1.5rem; font-weight: 800; }
+
+/* --- Papan Permainan & Kartu --- */
+#game-board {
+    display: grid; gap: 10px; padding: 10px; width: 100%; max-width: 800px;
+    /* Grid otomatis menyesuaikan jumlah kartu agar rapi */
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    justify-content: center;
+}
+
+.card {
+    aspect-ratio: 1 / 1; perspective: 1000px; cursor: pointer;
+}
+.card-inner {
+    width: 100%; height: 100%; position: relative;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+.card.flipped .card-inner, .card.matched .card-inner {
+    transform: rotateY(180deg);
+}
+.card-front, .card-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); display: flex;
+    align-items: center; justify-content: center;
+}
+.card-back {
+    background: linear-gradient(45deg, #ff6b81, #ff4757); /* Bagian belakang kartu */
+    border: 3px solid white;
+}
+.card-back::after {
+    content: '?'; font-size: 2rem; color: white; font-weight: bold;
+}
+.card-front {
+    background: white; transform: rotateY(180deg); padding: 5px;
+}
+.card-front img {
+    width: 100%; height: 100%; object-fit: contain; border-radius: 5px;
+}
+.card.matched .card-front {
+    box-shadow: 0 0 15px #2ed573; border: 3px solid #2ed573; opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+    #game-board { grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); }
+}
