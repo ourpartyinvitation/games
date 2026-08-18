@@ -97,9 +97,9 @@ small { display: block; margin-top: 5px; color: #aaa; font-size: 0.8rem; }
 
 /* --- Papan Permainan & Kartu --- */
 #game-board {
-    display: grid; gap: 10px; padding: 10px; width: 100%; max-width: 500px;
+    display: grid; gap: 10px; padding: 10px; width: 100%; max-width: 100px;
     /* Grid otomatis menyesuaikan jumlah kartu agar rapi */
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     justify-content: center;
 }
 
@@ -138,5 +138,5 @@ small { display: block; margin-top: 5px; color: #aaa; font-size: 0.8rem; }
 }
 
 @media (max-width: 600px) {
-    #game-board { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+    #game-board { grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); }
 }
