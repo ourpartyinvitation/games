@@ -190,6 +190,7 @@ function disableCards() {
         setTimeout(declareWinner, 500);
     }
     // Catatan Aturan: Jika cocok, giliran TETAP di pemain yang sama.
+    nextPlayerTurn(); // Catatan Aturan: Jika Cocok Tetap Ke Next Player
 }
 
 function unflipCards() {
