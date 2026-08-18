@@ -141,7 +141,16 @@ small { display: block; margin-top: 5px; color: #aaa; font-size: 0.8rem; }
 .card.matched .card-front {
     box-shadow: 0 0 15px #2ed573; border: 3px solid #2ed573; opacity: 0.8;
 }
-
+/* Styling teks koordinat pada kartu */
+.card-back .coord {
+    position: absolute;
+    top: 5px;
+    left: 8px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 800;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
 /* ========================================= */
 /* KODE AJAIB UNTUK LAYAR HP (Otomatis)      */
 /* ========================================= */
