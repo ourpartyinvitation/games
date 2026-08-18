@@ -150,7 +150,7 @@ small { display: block; margin-top: 5px; color: #aaa; font-size: 0.8rem; }
         gap: 8px; /* Jarak antar kartu dirapatkan */
         padding: 10px;
         /* Ukuran kartu otomatis mengecil minimal 60px agar muat banyak di HP */
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); 
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); 
     }
     
     /* Menyesuaikan jarak papan skor di HP agar tidak terlalu memakan tempat atas */
