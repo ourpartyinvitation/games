@@ -2,10 +2,10 @@
 // Tambahkan game baru di sini seiring berjalannya waktu!
 const gamesData = [
     {
-        title: "Memory Game",
+        title: "Memory Match",
         description: "Latih daya ingatmu dengan mencocokkan kartu bergambar yang seru!",
         thumbnail: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=500&q=80", 
-        path: "./MemoryGame/index.html" // Path menuju folder game-mu
+        path: "./memorymatch/index.html" // Path menuju folder game-mu
     },
     {
         title: "Tebak Kata",
