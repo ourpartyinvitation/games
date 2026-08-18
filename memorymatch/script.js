@@ -131,6 +131,9 @@ function generateCards() {
         cardElement.addEventListener('click', flipCard);
         board.appendChild(cardElement);
     });
+    // TAMBAHKAN KODE INI DI BARIS PALING BAWAH DALAM FUNGSI generateCards:
+    // Tunggu 100 milidetik agar CSS selesai menyusun kotak, baru hitung posisinya
+    setTimeout(updateGridVisuals, 100);
 
     // Sesuaikan ukuran grid CSS secara dinamis jika jumlah kartu sangat banyak
     // if (pairsCount > 20) {
@@ -229,3 +232,52 @@ function declareWinner() {
     let msg = winners.length > 1 ? `Seri! ${winners.join(' & ')} menang!` : `${winners[0]} Menang!`;
     alert(`Game Selesai!\n${msg}`);
 }
+// ==========================================
+// KODE TAMBAHAN UNTUK WARNA GRID & KOORDINAT
+// ==========================================
+function updateGridVisuals() {
+    const cards = document.querySelectorAll('.card');
+    if (cards.length === 0) return;
+    
+    // Kumpulkan posisi jarak dari atas (Baris) dan jarak dari kiri (Kolom)
+    let rows = new Set();
+    let cols = new Set();
+    
+    cards.forEach(card => {
+        rows.add(card.offsetTop);
+        cols.add(card.offsetLeft);
+    });
+    
+    // Urutkan posisi dari yang terkecil ke terbesar
+    const rowArray = Array.from(rows).sort((a,b) => a - b);
+    const colArray = Array.from(cols).sort((a,b) => a - b);
+    
+    // Terapkan warna dan label ke masing-masing kartu
+    cards.forEach(card => {
+        const rIndex = rowArray.indexOf(card.offsetTop); // Baris ke-berapa
+        const cIndex = colArray.indexOf(card.offsetLeft); // Kolom ke-berapa
+        
+        const cardBack = card.querySelector('.card-back');
+        
+        // 1. Buat Pola Warna Selang-Seling (Baris + Kolom)
+        if ((rIndex + cIndex) % 2 === 0) {
+            // Warna Default (Merah/Pink)
+            cardBack.style.background = 'linear-gradient(45deg, #ff6b81, #ff4757)';
+        } else {
+            // Warna Selingan (Biru/Ungu)
+            cardBack.style.background = 'linear-gradient(45deg, #3742fa, #5352ed)';
+        }
+        
+        // 2. Buat Label Koordinat (Baris = Huruf A, B, C | Kolom = Angka 1, 2, 3)
+        const rowChar = String.fromCharCode(65 + rIndex); // 65 adalah kode untuk huruf 'A'
+        const colNum = cIndex + 1;
+        
+        // Masukkan label ke dalam kartu (tanda tanya besar di tengah tidak akan hilang)
+        cardBack.innerHTML = `<span class="coord">${rowChar}${colNum}</span>`;
+    });
+}
+
+// Pastikan koordinat dihitung ulang jika pemain memutar HP (resize layar)
+window.addEventListener('resize', () => {
+    setTimeout(updateGridVisuals, 100);
+});
